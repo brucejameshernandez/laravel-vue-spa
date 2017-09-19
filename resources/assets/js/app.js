@@ -1,6 +1,7 @@
 import Vue from 'vue';
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.css'
+import VueMaterial from 'vue-material';
+import 'vue-material/dist/vue-material.css';
+import swal from 'sweetalert2';
 import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
@@ -8,6 +9,7 @@ import axios from 'axios';
 Vue.use(VueRouter);
 Vue.use(VueMaterial)
 Vue.use(VueAxios, axios);
+Vue.use(swal);
 
 import App from './App.vue';
 import Example from './components/Example.vue';

@@ -4,16 +4,18 @@
         <h1>Login Page</h1>
     </md-layout> 
     <form novalidate @submit.stop.prevent="submit">
-        <md-layout md-align="center">
+        <md-layout md-align="center" md-gutter>
+          <div style="width: 500px">
             <md-input-container>
-                <label>Username</label>
-                <md-input v-model="user.username"></md-input>
+              <label>Username</label>
+              <md-input v-model="user.username"></md-input>
             </md-input-container>
-
+          
             <md-input-container md-has-password>
                 <label>Password</label>
                 <md-input type="password" v-model="user.password"></md-input>
             </md-input-container>
+          </div>
         </md-layout>
     </form>    
     
@@ -30,6 +32,9 @@ export default {
         'password': ''
       }
     }
+  },
+  created () {
+    alert('hello');
   }
 }
 </script>
