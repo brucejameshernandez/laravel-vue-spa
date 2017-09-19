@@ -15,6 +15,7 @@
                 <label>Password</label>
                 <md-input type="password" v-model="user.password"></md-input>
             </md-input-container>
+            <md-button class="md-raised md-primary" @click="login">Login</md-button>
           </div>
         </md-layout>
     </form>    
@@ -33,8 +34,18 @@ export default {
       }
     }
   },
-  created () {
-    alert('hello');
+  methods : {
+    login () {
+      swal('hello');
+      let info = this.user;
+      axios.get('/login', { info }).then(response => {
+        let data = response.json();
+        alert(data);
+      }, (error) => {
+        let data = error.json();
+        alert(data);
+      });
+    }
   }
 }
 </script>

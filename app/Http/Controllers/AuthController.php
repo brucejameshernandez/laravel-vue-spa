@@ -12,5 +12,12 @@ class AuthController extends Controller
             'username' => 'required',
             'password' => 'required'
         ]);
+
+        $response = [
+            'success' => false,
+            'message' => trans('auth.failed')
+        ];
+
+        return response()->json($response);
     }
 }
