@@ -14,7 +14,17 @@
 
     </head>
     <body>
-        <div id="app"></div>
+        <div id="app">
+            <section class="section">
+                <div class="container">
+                    <router-view
+                    keep-alive
+                    transition
+                    transition-mode="out-in">
+                    </router-view>
+                </div>
+            </section>
+        </div>
         <script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>

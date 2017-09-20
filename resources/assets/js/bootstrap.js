@@ -1,4 +1,3 @@
-
 window._ = require('lodash');
 
 /**
@@ -23,19 +22,34 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+window.swal = require('sweetalert2');
+import 'sweetalert2/dist/sweetalert2.css';
+
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
  * all outgoing HTTP requests automatically have it attached. This is just
  * a simple convenience so we don't have to attach every token manually.
  */
 
-let token = document.head.querySelector('meta[name="csrf-token"]');
+// let token = document.head.querySelector('meta[name="csrf-token"]');
 
-if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-} else {
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
-}
+// if (token) {
+//     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+// } else {
+//     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+// }
+
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import VueMaterial from 'vue-material';
+import 'vue-material/dist/vue-material.css';
+import axios from 'axios'
+import VueAxios from 'vue-axios';
+
+window.Vue = Vue;
+Vue.use(VueRouter);
+Vue.use(VueMaterial)
+Vue.use(VueAxios, axios);
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
