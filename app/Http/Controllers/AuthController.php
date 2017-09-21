@@ -47,4 +47,11 @@ class AuthController extends Controller
 
         return response()->json($response);
     }
+
+    public function logout()
+    {
+        app('auth')->logout();
+        return response()->json(['success' => true]);
+    }
+
 }

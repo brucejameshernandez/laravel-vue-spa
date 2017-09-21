@@ -16,3 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/login', 'AuthController@login');
+Route::get('/logout', 'AuthController@logout');
+Route::get('/checkLogin', function () {
+    $response = app('auth')->check();
+    return json_encode($response);
+});

@@ -19,7 +19,6 @@
           </div>
         </md-layout>
     </form>    
-    
   </div>
 </template>
 

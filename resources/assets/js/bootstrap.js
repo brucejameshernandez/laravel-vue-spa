@@ -45,11 +45,13 @@ import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.css';
 import axios from 'axios'
 import VueAxios from 'vue-axios';
+import Vuex from 'vuex';
 
 window.Vue = Vue;
 Vue.use(VueRouter);
 Vue.use(VueMaterial)
 Vue.use(VueAxios, axios);
+Vue.use(Vuex);
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
