@@ -1,34 +1,16 @@
-var mix = require('laravel-mix');
+let mix = require('laravel-mix'),
+    gulp = require('gulp');
+compass = require('gulp-compass'),
+    path = require('path');
 
-var htmlmin = require('gulp-htmlmin');
-var gulp = require('gulp');
-
-gulp.task('default', function() {
-    gulp.task('compress', function() {
-        var opts = {
-            collapseWhitespace: true,
-            removeAttributeQuotes: true,
-            removeComments: true,
-            minifyJS: true
-        };
-
-        return gulp.src('./storage/framework/views/*')
-            .pipe(htmlmin(opts))
-            .pipe(gulp.dest('./storage/framework/views/'));
-    });
-
-    mix.sass('app.scss', 'public/css/app.css');
-    mix.js('node_modules/jquery/dist/jquery.min.js', 'public/scripts/jquery.min.js');
-    mix.js('node_modules/swiper/dist/js/swiper.min.js', 'public/scripts/swiper.min.js');
-    mix.js('node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js', 'public/scripts/bootstrap.min.js');
-    mix.js('app.js', 'public/scripts/app.min.js');
-    gulp.src('./storage/framework/views/*')
-        .pipe(htmlmin({
-            collapseWhitespace: true,
-            removeAttributeQuotes: true,
-            removeComments: true,
-            minifyJS: true,
+gulp.task('compass', function() {
+    gulp.src('./src/*.scss')
+        .pipe(compass({
+            project: path.join(__dirname, 'assets'),
+            css: 'css',
+            sass: 'sass'
         }))
-        .pipe(gulp.dest('./storage/framework/views/'));
-
+        .pipe(gulp.dest('app/assets/temp'));
 });
+
+gulp.task('default', ['compass']);
